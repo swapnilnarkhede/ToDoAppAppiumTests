@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by swapnil on 16/05/17.
@@ -25,7 +26,7 @@ public abstract class AbstractTest {
         capabilities.setCapability("platformName","Android");
         capabilities.setCapability("appActivity","com.example.android.architecture.blueprints.todoapp.tasks.TasksActivity");
         capabilities.setCapability("appPackage","com.example.android.architecture.blueprints.todomvp");
-        capabilities.setCapability("avd","hudson_en-US_420_1080x1920_android-22_x86_64");
+        capabilities.setCapability("avd","APPIUM_TEST_22");
         capabilities.setCapability("app",  AbstractTest.class.getResource("/todo-app.apk").getPath());
 
 
@@ -33,6 +34,9 @@ public abstract class AbstractTest {
         URL appiumURL = new URL("http://127.0.0.1:4723/wd/hub");
 
         driver = new AndroidDriver(appiumURL, capabilities);
+        driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+
+
     }
 
     @AfterClass
