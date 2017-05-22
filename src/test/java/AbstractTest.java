@@ -25,7 +25,7 @@ public abstract class AbstractTest {
         capabilities.setCapability("platformName","Android");
         capabilities.setCapability("appActivity","com.example.android.architecture.blueprints.todoapp.tasks.TasksActivity");
         capabilities.setCapability("appPackage","com.example.android.architecture.blueprints.todomvp");
-        capabilities.setCapability("avd","Nexus_4_API_22");
+        capabilities.setCapability("avd","Nexus_5_API_22_2");
         capabilities.setCapability("app",  AbstractTest.class.getResource("/todo-app.apk").getPath());
 
 
