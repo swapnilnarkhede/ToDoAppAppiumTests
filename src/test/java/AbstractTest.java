@@ -27,14 +27,15 @@ public abstract class AbstractTest {
         capabilities.setCapability("appActivity","com.example.android.architecture.blueprints.todoapp.tasks.TasksActivity");
         capabilities.setCapability("appPackage","com.example.android.architecture.blueprints.todomvp");
         capabilities.setCapability("avd","APPIUM_TEST_22");
-        capabilities.setCapability("app",  AbstractTest.class.getResource("/todo-app.apk").getPath());
+        final String path = AbstractTest.class.getResource("/todo-app.apk").getPath();
+        System.out.print("--------------------> --------------------> apk path =======" + path + "=============================");
+        capabilities.setCapability("app", path);
 
 
         /* Check your Basic Setup page to find the URL that corresponds to your device */
         URL appiumURL = new URL("http://127.0.0.1:4723/wd/hub");
 
         driver = new AndroidDriver(appiumURL, capabilities);
-        driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 
 
     }
