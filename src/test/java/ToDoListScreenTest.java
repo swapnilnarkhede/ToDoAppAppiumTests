@@ -1,6 +1,15 @@
+import io.appium.java_client.AppiumDriver;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import screens.AddNewToDoTaskScreen;
 import screens.TodoListScreen;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -11,7 +20,7 @@ import static org.junit.Assert.assertNotNull;
 public class ToDoListScreenTest extends AbstractTest {
 
     @Test
-    public void itShouldSaveNewTaskAndDisplayNewTaskList() {
+    public void itShouldSaveNewTaskAndDisplayNewTaskList() throws MalformedURLException {
         TodoListScreen screen = new TodoListScreen(driver);
         final AddNewToDoTaskScreen addNewToDoTaskScreen = screen.addNewToDoTask();
 
@@ -27,7 +36,7 @@ public class ToDoListScreenTest extends AbstractTest {
     }
 
     @Test
-    public void itShouldMoveTaskInCompletedTaskList() {
+    public void itShouldMoveTaskInCompletedTaskList() throws MalformedURLException {
         // given task
         TodoListScreen screen = new TodoListScreen(driver);
         addNewTask("First task", "First Task Description");
