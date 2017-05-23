@@ -20,7 +20,7 @@ public class ToDoListScreenTest extends AbstractTest {
         final TodoListScreen todoListScreen = addNewToDoTaskScreen.navigateToTodoListScreen();
         screen.displayFilterTaskByStatus("All");
 
-        assertEquals("TO-DO-MVP", todoListScreen.getNavBarTitle().getText());
+        assertEquals("TO-DO-MVP", todoListScreen.getNavbarTitle().getText());
         assertEquals("All TO-DOs", todoListScreen.getTodoFilterTitle().getText());
         assertNotNull(todoListScreen.getTaskListItems());
         assertEquals("Test with Appium", todoListScreen.getLatestTaskAddedTitle());

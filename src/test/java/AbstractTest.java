@@ -22,13 +22,13 @@ public abstract class AbstractTest {
 
         //These are the capabilities we must provide to run our test on TestObject /*
         capabilities.setCapability("deviceName", "AndroidAppiumTest");
-        capabilities.setCapability("platformVersion","5.1");
+        capabilities.setCapability("platformVersion","6.0.1");
         capabilities.setCapability("platformName","Android");
         capabilities.setCapability("appActivity","com.example.android.architecture.blueprints.todoapp.tasks.TasksActivity");
         capabilities.setCapability("appPackage","com.example.android.architecture.blueprints.todomvp");
         capabilities.setCapability("avd","APPIUM_TEST_22");
+        capabilities.setCapability("device","Android");
         final String path = AbstractTest.class.getResource("/todo-app.apk").getPath();
-        System.out.print("--------------------> --------------------> apk path =======" + path + "=============================");
         capabilities.setCapability("app", path);
 
 
@@ -37,8 +37,8 @@ public abstract class AbstractTest {
 
         driver = new AndroidDriver(appiumURL, capabilities);
 
-
     }
+
 
     @AfterClass
     public static void tearDown() {

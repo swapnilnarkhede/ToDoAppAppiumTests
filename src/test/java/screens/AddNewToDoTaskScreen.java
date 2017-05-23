@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AndroidFindBys;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBys;
 
 /**
@@ -19,8 +20,8 @@ public class AddNewToDoTaskScreen extends AbstractScreen {
     @AndroidFindBy(id = APP_PACKAGE_ID + "/fab_edit_task_done")
     private MobileElement taskSaveFavIcon;
 
-    @AndroidFindBy(xpath = "//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.view.View[1]/android.widget.TextView[1]")
-    private MobileElement navBarTitle;
+    @AndroidFindBy(id = APP_PACKAGE_ID + "/toolbar")
+    private MobileElement toolBar;
 
     public AddNewToDoTaskScreen(AppiumDriver driver) {
         super(driver);
@@ -39,7 +40,7 @@ public class AddNewToDoTaskScreen extends AbstractScreen {
     }
 
     public MobileElement getNavBarTitle() {
-        return navBarTitle;
+        return toolBar.findElement(By.className("android.widget.TextView"));
     }
 
     public TodoListScreen navigateToTodoListScreen() {

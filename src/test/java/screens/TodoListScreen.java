@@ -14,8 +14,8 @@ import java.util.stream.Collectors;
  */
 public class TodoListScreen extends AbstractScreen {
 
-    @AndroidFindBy(xpath = "//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.view.View[1]/android.widget.TextView[1]")
-    private  MobileElement navBarTitle;
+    @AndroidFindBy(id = APP_PACKAGE_ID + "/toolbar")
+    private  MobileElement toolbar;
 
     @AndroidFindBy(id = APP_PACKAGE_ID + "/filteringLabel")
     private MobileElement todoFilterTitle;
@@ -29,8 +29,8 @@ public class TodoListScreen extends AbstractScreen {
     @AndroidFindBys(@AndroidFindBy(id = APP_PACKAGE_ID + "/title"))
     private List<MobileElement> taskListItems;
 
-    @AndroidFindBy(xpath = "//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.view.View[1]/android.support.v7.widget.LinearLayoutCompat[1]/android.widget.ImageView[1]")
-    private  MobileElement contextActionMenu;
+//    @AndroidFindBy(xpath = "//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.view.View[1]/android.support.v7.widget.LinearLayoutCompat[1]/android.widget.ImageView[1]")
+//    private  MobileElement contextActionMenu;
 
     @AndroidFindBy(id = APP_PACKAGE_ID + "/menu_filter")
     private MobileElement taskFilterMenu;
@@ -62,8 +62,8 @@ public class TodoListScreen extends AbstractScreen {
         return addNewTaskFabIcon;
     }
 
-    public MobileElement getNavBarTitle() {
-        return navBarTitle;
+    public MobileElement getNavbarTitle() {
+        return toolbar.findElement(By.className("android.widget.TextView"));
     }
 
     public List<MobileElement> getTaskListItems() {
@@ -71,7 +71,7 @@ public class TodoListScreen extends AbstractScreen {
     }
 
     public MobileElement getContextActionMenu() {
-        return contextActionMenu;
+        return toolbar.findElement(By.className("android.widget.ImageView"));
     }
 
     public MobileElement getMenuItemList() {
