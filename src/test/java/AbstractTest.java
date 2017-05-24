@@ -1,21 +1,13 @@
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by swapnil on 16/05/17.
@@ -31,7 +23,7 @@ public abstract class AbstractTest {
 
     @Parameterized.Parameters
     public static Object[] getDeviceInfo() throws Exception {
-        return new Object[][]{{"OnePlusThree", "7.1.1"},{"emulator-5554","5.1"}};
+        return new Object[][]{{"OnePlusThree", "7.1.1"},{"emulator-5554","5.1"},{"Nexus 5","6.0.1"}};
     }
 
 

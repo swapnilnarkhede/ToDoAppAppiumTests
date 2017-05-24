@@ -1,15 +1,8 @@
-import io.appium.java_client.AppiumDriver;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import screens.AddNewToDoTaskScreen;
 import screens.TodoListScreen;
 
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
