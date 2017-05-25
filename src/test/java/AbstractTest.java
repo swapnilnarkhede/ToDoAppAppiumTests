@@ -1,5 +1,8 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import model.Device;
+import model.Devices;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -13,8 +16,11 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Properties;
 
 @RunWith(Parallelized.class)
@@ -53,19 +59,17 @@ public abstract class AbstractTest {
 
     private static Object[][] readTestingDevicesInfo() throws ParseException, IOException {
         String fileName = System.getProperty("devices");
+        ObjectMapper objectMapper = new ObjectMapper();
 
-        JSONParser parser = new JSONParser();
+//        byte[] jsonData = Files.readAllBytes(Paths.get(fileName));
+        Devices devices = objectMapper.readValue(new File(fileName), Devices.class);
 
-        final JSONObject devices = (JSONObject) parser.parse(new FileReader(fileName));
-
-        final JSONArray deviceList = (JSONArray) devices.get("devices");
-
-        final String[][] devicesInfo = new String[deviceList.size()][2];
+        final String[][] devicesInfo = new String[devices.getDeviceList().size()][2];
 
         int count = 0 ;
-        for(Object o: deviceList) {
-            devicesInfo[count][0] = (((JSONObject) o).get("applicationName")).toString();
-            devicesInfo[count][1] = (((JSONObject) o).get("androidVersion")).toString();
+        for(Device device: devices.getDeviceList()) {
+            devicesInfo[count][0] = device.getApplicationName();
+            devicesInfo[count][1] = device.getAndroidVersion();
             count++;
         }
 

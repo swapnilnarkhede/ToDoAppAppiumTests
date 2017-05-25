@@ -4,7 +4,7 @@
       "version": "5.1",
       "maxInstances": 1,
       "platform": "ANDROID",
-      "deviceName": "055295ed0a667b25",
+      "deviceName": "emulator-5554",
       "newCommandTimeout": "30",
       "deviceReadyTimeout": 5,
       "applicationName": "emulator-5554"

@@ -3,6 +3,10 @@
     {
       "applicationName":"OnePlusThree",
       "androidVersion": "7.1.1"
+    },
+    {
+      "applicationName":"emulator-5554",
+      "androidVersion": "5.1"
     }
   ]
 }
