@@ -2,11 +2,13 @@
   "devices": [
     {
       "applicationName":"OnePlusThree",
-      "androidVersion": "7.1.1"
+      "androidVersion": "7.1.1",
+      "emulator": false
     },
     {
-      "applicationName":"emulator-5554",
-      "androidVersion": "5.1"
+      "applicationName":"APPIUM_TEST_22",
+      "androidVersion": "5.1",
+      "emulator": true
     }
   ]
 }

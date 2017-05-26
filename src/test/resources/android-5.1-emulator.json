@@ -4,10 +4,10 @@
       "version": "5.1",
       "maxInstances": 1,
       "platform": "ANDROID",
-      "deviceName": "emulator-5554",
+      "deviceName": "APPIUM_TEST_22",
       "newCommandTimeout": "30",
       "deviceReadyTimeout": 5,
-      "applicationName": "emulator-5554"
+      "applicationName": "APPIUM_TEST_22"
     }
   ],
   "configuration": {

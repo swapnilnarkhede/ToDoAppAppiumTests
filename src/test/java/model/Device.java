@@ -1,16 +1,18 @@
 package model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by swapnil on 25/05/17.
- */
 public class Device {
+
     @JsonProperty("applicationName")
     private String applicationName;
     @JsonProperty("androidVersion")
     private String androidVersion;
+    @JsonProperty("emulator")
+    private Boolean emulator;
+
+    public Device() {
+    }
 
     public String getApplicationName() {
         return applicationName;
@@ -18,5 +20,9 @@ public class Device {
 
     public String getAndroidVersion() {
         return androidVersion;
+    }
+
+    public Boolean isEmulator() {
+        return emulator;
     }
 }

@@ -11,6 +11,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameter;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.*;
@@ -28,10 +29,12 @@ public abstract class AbstractTest {
 
     protected AppiumDriver driver;
 
-    @Parameterized.Parameter(value = 0)
+    @Parameter(value = 0)
     public String applicationName;
-    @Parameterized.Parameter(value = 1)
+    @Parameter(value = 1)
     public String androidVersion;
+    @Parameter(value = 2)
+    public boolean isEmulator;
 
     @Parameterized.Parameters
     public static Object[] getDeviceInfo() throws Exception {
@@ -49,6 +52,9 @@ public abstract class AbstractTest {
         capabilities.setCapability("appActivity", properties.getProperty("appActivity"));
         capabilities.setCapability("appPackage", properties.getProperty("appPackage"));
         capabilities.setCapability("applicationName", applicationName);
+        if (isEmulator) {
+            capabilities.setCapability("avd", applicationName);
+        }
         capabilities.setCapability("app", AbstractTest.class.getResource(properties.getProperty("appApk")).getPath());
 
         URL appiumURL = new URL("http://127.0.0.1:4444/wd/hub");
@@ -61,15 +67,15 @@ public abstract class AbstractTest {
         String fileName = System.getProperty("devices");
         ObjectMapper objectMapper = new ObjectMapper();
 
-//        byte[] jsonData = Files.readAllBytes(Paths.get(fileName));
         Devices devices = objectMapper.readValue(new File(fileName), Devices.class);
 
-        final String[][] devicesInfo = new String[devices.getDeviceList().size()][2];
+        final Object[][] devicesInfo = new Object[devices.getDeviceList().size()][3];
 
         int count = 0 ;
         for(Device device: devices.getDeviceList()) {
             devicesInfo[count][0] = device.getApplicationName();
             devicesInfo[count][1] = device.getAndroidVersion();
+            devicesInfo[count][2] = device.isEmulator();
             count++;
         }
 
