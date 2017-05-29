@@ -3,25 +3,17 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import model.Device;
 import model.Devices;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
+import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Properties;
 
 @RunWith(Parallelized.class)
@@ -36,7 +28,7 @@ public abstract class AbstractTest {
     @Parameter(value = 2)
     public boolean isEmulator;
 
-    @Parameterized.Parameters
+    @Parameters(name = "{index}: todo-app(application name - {0}:android version - {1}: emulator - {2})")
     public static Object[] getDeviceInfo() throws Exception {
         return readTestingDevicesInfo();
     }
