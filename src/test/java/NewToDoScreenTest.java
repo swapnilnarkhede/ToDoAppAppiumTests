@@ -15,7 +15,7 @@ public class NewToDoScreenTest extends AbstractTest {
         TodoListScreen screen = new TodoListScreen(driver);
         final AddNewToDoTaskScreen addNewToDoTaskScreen = screen.addNewToDoTask();
 
-        assertEquals("New TO-DO-1", addNewToDoTaskScreen.getNavBarTitle().getText());
+        assertEquals("New TO-DO", addNewToDoTaskScreen.getNavBarTitle().getText());
         assertEquals("Title", addNewToDoTaskScreen.getTaskTitle().getText());
         assertEquals("Enter your TO-DO here.", addNewToDoTaskScreen.getTaskDescription().getText());
         assertNotNull(addNewToDoTaskScreen.getTaskSaveFavIcon());
