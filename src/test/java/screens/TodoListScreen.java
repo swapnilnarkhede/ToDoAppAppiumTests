@@ -2,6 +2,8 @@ package screens;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AndroidFindBys;
 import org.openqa.selenium.By;
@@ -95,6 +97,7 @@ public class TodoListScreen extends AbstractScreen {
         taskFilterMenu.click();
         final MobileElement menuItem = menuItemList.findElements(By.className("android.widget.TextView")).stream().filter(element -> element.getText().equals(taskStatus)).collect(Collectors.<MobileElement>toList()).get(0);
         menuItem.click();
+//        ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.KEYCODE_MENU);
     }
     public String getLatestTaskAddedTitle() {
         return taskListItems.get(taskListItems.size() - 1).getText();

@@ -6,6 +6,11 @@
       "emulator": false
     },
     {
+      "applicationName":"Nexus 5",
+      "androidVersion": "6.0.1",
+      "emulator": false
+    },
+    {
       "applicationName":"APPIUM_TEST_22",
       "androidVersion": "5.1",
       "emulator": true
